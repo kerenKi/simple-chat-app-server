@@ -28,13 +28,11 @@ io.on('connection', function(socket){
 })
 
 router.post('/messages', (req, res) => {
-  console.log(req.body)
   const user_message = req.body.message
   const message = {
     user_name: user_message.user_name,
     text: user_message.text
   }
-  console.log('message: ', message)
   io.emit('newMessage', message)
 })
 
